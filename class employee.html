@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Employee Details</title>
+</head>
+<body>
+    <h2>Company Object Example System</h2>
+    <button onclick="showDetails()">Show Company Employee Details</button>
+    <p id="output"></p>
+<script>
+    const emp1 = {
+        name: "Srinath",
+        salary: 50000,
+        getDetails: function() {
+            return  this.name + " earns ₹" + this.salary;
+        }
+    }
+    const emp2 = {
+        name: "Jaswant Goud",
+        salary:60000,
+        getDetails: function() {
+            return  this.name + " earns ₹" + this.salary;
+        }
+    }
+    class Employee{
+        constructor(name, salary) {
+            this.name = name;
+            this.salary = salary;
+        }
+        getDetails() {
+            return  this.name + " earns ₹" + this.salary;
+        }
+    }
+    const emp3 = new Employee("Pranav", 40000);
+    const mgr1 = {
+        name: "Srinath",
+        salary: 50000, 
+        department: "IT", 
+        getFullDetails: function() {
+            return  this.name + " earns ₹" + this.salary + " and works in " + this.department + " department.";
+        }
+    }
+    class Manager extends Employee {
+        constructor(name, salary, department) {
+            super(name, salary);
+            this.department = department;
+        }
+        getFullDetails() {
+            return  this.name + " earns ₹" + this.salary + " and works in " + this.department + " department.";
+        }
+    }
+    const mgr2 = new Manager("Jaswant Goud", 60000, "HR");
+    function showDetails() {
+        const output = document.getElementById("output");
+        output.innerHTML = emp1.getDetails() + "<br>" + 
+                           emp2.getDetails() + "<br>" + 
+                           emp3.getDetails() + "<br>" + 
+                           mgr1.getFullDetails() + "<br>" + 
+                           mgr2.getFullDetails();
+    }
+</script>
+    
+</body>
+</html>

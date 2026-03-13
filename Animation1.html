@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced CSS Animations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1 class="fade-text">Advanced CSS Animations</h1>
+    <p>Transitions & Keyframe Effects</p>
+</header>
+
+<section class="container">
+
+    <div class="card slide-card">
+        <h2>Slide In</h2>
+        <p>Card enters smoothly</p>
+    </div>
+
+    <div class="card transition-card pulse">
+        <h2>Hover Transition</h2>
+        <button class="btn bounce">Click Me</button>
+    </div>
+
+    <div class="card animation-card">
+        <h2>Loader</h2>
+        <div class="loader"></div>
+        <div class="float-icon">★</div>
+    </div>
+
+</section>
+
+</body>
+</html>
+
+Style.css:
+/* ---------- BASE ---------- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+header {
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    width: 260px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ---------- TRANSITIONS ---------- */
+.transition-card {
+    transition-property: transform, box-shadow;
+    transition-duration: 0.5s;
+}
+
+.transition-card:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.4);
+}
+
+.btn {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    background-color: #ff7675;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.btn:hover {
+    background-color: #00cec9;
+}
+
+/* ---------- ANIMATIONS ---------- */
+.fade-text {
+    animation-name: fadeInDown;
+    animation-duration: 1.5s;
+}
+
+.slide-card {
+    animation-name: slideLeft;
+    animation-duration: 1.2s;
+}
+
+.loader {
+    width: 55px;
+    height: 55px;
+    border: 6px solid #ddd;
+    border-top: 6px solid #6c5ce7;
+    border-radius: 50%;
+    margin: 15px auto;
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+/* ---------- ADVANCED EFFECTS ---------- */
+.bounce {
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.pulse {
+    animation-name: pulseGlow;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+.float-icon {
+    font-size: 40px;
+    color: #fdcb6e;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+/* ---------- KEYFRAMES ---------- */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px #6c5ce7; }
+    50% { box-shadow: 0 0 25px #a29bfe; }
+    100% { box-shadow: 0 0 10px #6c5ce7; }
+}
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

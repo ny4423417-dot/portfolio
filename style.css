@@ -1,0 +1,26 @@
+body{
+    background-color: black;
+}
+ul {
+    display: flex;
+    gap: 30px;   /* adjust spacing here */
+    list-style: none;  /* removes bullets */
+    padding: 0;
+}
+.header{
+    background-color: blue;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    padding: 20px;
+}
+.profile{
+    width: 200px;
+    height: 100px;
+    border-radius: 50px;
+    margin-left: auto;
+}
+.about{
+    color: white;
+    
+}

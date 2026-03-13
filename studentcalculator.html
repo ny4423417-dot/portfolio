@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Calculator</title>
+    </head>
+    <body>
+        <h2>Student Result name</h2>
+        <form>
+            <label>Student name</label>
+            <input type="text" id="name"><br><br>
+            <label>Number of subjects</label>
+            <input type="number" id="subjects"><br><br>
+            <button type="button" onclick="Calculateresult">Calculate Result</button>
+        </form>
+        <script>
+            function Calculateresult() {
+                let name = document.getElementById("name").value;
+                let subjects = parseInt(document.getElementById("subjects").value);
+                let total=0;
+                let i = 1;
+                //DO-WHILE LOOP
+                do{
+                    let mark = parseInt(prompt("Enter marks for subject"+i));
+                    total=total+mark;
+                    i++;
+                }while(i<=subjects);
+            }
+        </script>
+    </body>
+</html>
